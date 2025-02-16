@@ -1,0 +1,149 @@
+mainfile: MSX1.sv
+
+# use-template-sys: True
+
+defines:
+  MISTER_FB: 1
+  MISTER_FB_PALETTE: 1
+
+sourcedirs:
+  - sys
+  - rtl
+
+quartus:
+  sourcefiles:
+    - MSX1.sdc
+    - sys/sys_top.sdc
+    - rtl/pll_0002.v
+    - sys/altera_pll_reconfig_top.v
+    - sys/altera_pll_reconfig_core.v
+    - sys/pll_audio_0002.v
+    - sys/pll_hdmi_0002.v
+    - sys/pll_cfg_hdmi.v
+
+vivado:
+  sourcefiles:
+    # - sys/sys_top.xdc
+    # - sys/xilinx7_mmcm_reconfig.v
+    # - sys/xilinx_pll_reconfig_top.v
+    # - sys/pll_hdmi_0002-xilinx7.v
+    # - sys/pll_audio_0002-xilinx7.v
+
+    - rtl/sdram.sv
+    - rtl/tape.sv
+    - rtl/msx1.v
+    - rtl/spram.vhd
+    - rtl/keyboard.vhd
+    - upstream/rtl/pll.v
+    - rtl/pll_0002-xilinx7.v
+    - upstream/rtl/cv_clock.vhd
+    - upstream/rtl/ddram.sv
+    - upstream/rtl/io_decoder.v
+    - upstream/rtl/jt8255.v
+    - upstream/rtl/ls74.sv
+    - upstream/rtl/memory_mapper.v
+    - rtl/slots.sv
+
+    - upstream/rtl/T80/T80_ALU.vhd
+    - upstream/rtl/T80/T80_MCode.vhd
+    - upstream/rtl/T80/T80_Pack.vhd
+    - upstream/rtl/T80/T80_Reg.vhd
+    - rtl/T80/T80.vhd
+    - upstream/rtl/T80/T80pa.vhd
+    - upstream/rtl/T80/T80s.vhd
+
+    - upstream/rtl/jt49/jt49.v
+    - upstream/rtl/jt49/jt49_noise.v
+    - upstream/rtl/jt49/jt49_exp.v
+    - upstream/rtl/jt49/jt49_eg.v
+    - upstream/rtl/jt49/jt49_div.v
+    - upstream/rtl/jt49/jt49_cen.v
+    - upstream/rtl/jt49/jt49_bus.v
+    
+    - rtl/cart/wd1793.sv
+    - rtl/cart/rom_detect.v
+    - upstream/rtl/cart/konami_scc.v
+    - upstream/rtl/cart/ram.vhd
+    - rtl/cart/scc_wave_mul.vhd
+    - rtl/cart/scc_wave.vhd
+    - upstream/rtl/cart/ascii8.v
+    - upstream/rtl/cart/ascii16.v
+    - upstream/rtl/cart/gamemaster2.v
+    - upstream/rtl/cart/konami.v
+    
+    - upstream/rtl/cart/rom.v
+    - upstream/rtl/cart/vy0010.v
+
+    - rtl/vdp18/vdp18_core.vhd
+    - upstream/rtl/vdp18/vdp18_addr_mux.vhd
+    - upstream/rtl/vdp18/vdp18_clk_gen.vhd
+    - upstream/rtl/vdp18/vdp18_col_mux.vhd
+    - upstream/rtl/vdp18/vdp18_col_pack-p.vhd
+    - upstream/rtl/vdp18/vdp18_cpuio.vhd
+    - upstream/rtl/vdp18/vdp18_ctrl.vhd
+    - upstream/rtl/vdp18/vdp18_hor_vert.vhd
+    - upstream/rtl/vdp18/vdp18_pack-p.vhd
+    - upstream/rtl/vdp18/vdp18_pattern.vhd
+    - upstream/rtl/vdp18/vdp18_sprite.vhd
+    
+    - upstream_template/sys/alsa.sv
+    - upstream_template/sys/altera_pll_reconfig_core.v
+    - upstream_template/sys/altera_pll_reconfig_top.v
+    - upstream_template/sys/arcade_video.v
+    - upstream_template/sys/ascal.vhd
+    - upstream_template/sys/audio_out.v
+    - upstream_template/sys/build_id.tcl
+    - upstream_template/sys/ddr_svc.sv
+    - upstream_template/sys/f2sdram_safe_terminator.sv
+    - upstream_template/sys/gamma_corr.sv
+    - upstream_template/sys/hdmi_config.sv
+    - upstream_template/sys/hps_interface.v
+    - upstream_template/sys/hps_io.sv
+    - upstream_template/sys/hq2x.sv
+    - upstream_template/sys/i2c.v
+    - upstream_template/sys/i2s.v
+    - upstream_template/sys/iir_filter.v
+    - upstream_template/sys/ltc2308.sv
+    - upstream_template/sys/math.sv
+    - upstream_template/sys/mcp23009.sv
+    - upstream_template/sys/mt32pi.sv
+    - upstream_template/sys/osd.v
+    - upstream_template/sys/pll_audio_0002-xilinx7.v
+    # - upstream_template/sys/pll_audio_0002.v
+    - upstream_template/sys/pll_audio.v
+    - upstream_template/sys/pll_cfg.v
+    - upstream_template/sys/pll_hdmi_0002-xilinx7.v
+    # - upstream_template/sys/pll_hdmi_0002.v
+    - upstream_template/sys/pll_hdmi_adj.vhd
+    - upstream_template/sys/pll_hdmi.v
+    - upstream_template/sys/scandoubler.v
+    - upstream_template/sys/scanlines.v
+    - upstream_template/sys/sd_card.sv
+    - upstream_template/sys/shadowmask.sv
+    - upstream_template/sys/sigma_delta_dac.v
+    - upstream_template/sys/spdif.v
+    - upstream_template/sys/spi_slave.vhd
+    - upstream_template/sys/sys_analog.tcl
+    - upstream_template/sys/sys_dpram.vhd
+    - upstream_template/sys/sys_dual_sdram.tcl
+    - upstream_template/sys/sys_top.sdc
+    - upstream_template/sys/sys_top.v
+    - upstream_template/sys/sys_top.xdc
+    - upstream_template/sys/sys.qip
+    - upstream_template/sys/sys.tcl
+    - upstream_template/sys/sysmem.sv
+    - upstream_template/sys/top_crg.v
+    - upstream_template/sys/vga_out.sv
+    - upstream_template/sys/video_cleaner.sv
+    - sys/video_freak.sv
+    - upstream_template/sys/video_freezer.sv
+    - upstream_template/sys/video_mixer.sv
+    - upstream_template/sys/xilinx_pll_reconfig_top.v
+    - upstream_template/sys/xilinx7_mmcm_reconfig.v
+    - upstream_template/sys/yc_out.sv
+    - upstream_template/rtl/cos.sv
+    - upstream_template/rtl/lfsr.v
+    - upstream_template/rtl/mycore.v
+    # - upstream_template/rtl/pll_0002-xilinx7.v
+    # - upstream_template/rtl/pll_0002.v
+    # - upstream_template/rtl/pll.v

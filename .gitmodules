@@ -1,0 +1,6 @@
+[submodule "upstream"]
+	path = upstream
+	url = https://github.com/MiSTer-devel/MSX1_MiSTer.git
+[submodule "upstream_template"]
+	path = upstream_template
+	url = https://github.com/MiSTeX-devel/Template_MiSTeX.git
